@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Sleek Wireless Earbuds",
+      "description": "High-quality sound with noise cancellation.",
+      "price": 29999,
+      "category": "earbuds",
+      "image": "/product-2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Smartwatch Pro",
+      "description": "Stay connected with fitness tracking and notifications.",
+      "price": 39999,
+      "category": "smartwatches",
+      "image": "/product-1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Phone Case - Midnight Blue",
+      "description": "Stylish and protective phone case.",
+      "price": 74399,
+      "category": "phone cases",
+      "image": "/product-4.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bluetooth Speaker",
+      "description": "Portable speaker with deep bass and clear sound.",
+      "price": 9399,
+      "category": "earbuds",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Gaming Mouse",
+      "description": "Ergonomic design with customizable buttons.",
+      "price": 1995,
+      "category": "laptop accessories",
+      "image": "/product-5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Laptop Stand",
+      "description": "Adjustable stand for laptops of all sizes.",
+      "price": 1759,
+      "category": "laptop accessories",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Wireless Charger",
+      "description": "Fast charging for all Qi-enabled devices.",
+      "price": 9349,
+      "category": "laptop accessories",
+      "image": "/product-6.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Smart Home Hub",
+      "description": "Control your smart devices with voice commands.",
+      "price": 39679,
+      "category": "smartwatches",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Noise-Canceling Headphones",
+      "description": "Immersive sound experience with active noise cancellation.",
+      "price": 49955,
+      "category": "earbuds",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 10,
+      "name": "4K Action Camera",
+      "description": "Capture every moment in stunning 4K resolution.",
+      "price": 69965,
+      "category": "laptop accessories",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Smart Thermostat",
+      "description": "Automate your home's temperature for energy savings.",
+      "price": 28921,
+      "category": "smartwatches",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Portable Power Bank",
+      "description": "High-capacity power bank for charging on the go.",
+      "price": 14999,
+      "category": "laptop accessories",
+      "image": "/product-7.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Bluetooth Earbuds",
+      "description": "Compact and comfortable wireless earbuds.",
+      "price": 19990,
+      "category": "earbuds",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 14,
+      "name": "VR Headset",
+      "description": "Immerse yourself in virtual reality experiences.",
+      "price": 59990,
+      "category": "laptop accessories",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Smart Doorbell",
+      "description": "Monitor your front door with HD video and two-way audio.",
+      "price": 29990,
+      "category": "smartwatches",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Tablet Stand",
+      "description": "Adjustable stand for tablets of all sizes.",
+      "price": 19990,
+      "category": "laptop accessories",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Wireless Keyboard",
+      "description": "Compact keyboard with long battery life.",
+      "price": 19950,
+      "category": "laptop accessories",
+      "image": "/product-1.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Smart Light Bulb",
+      "description": "Control the brightness and color of your lights.",
+      "price": 49250,
+      "category": "smartwatches",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Streaming Media Player",
+      "description": "Stream your favorite shows in 4K UHD.",
+      "price": 39990,
+      "category": "laptop accessories",
+      "image": "/watch.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Fitness Tracker",
+      "description": "Track your fitness goals with this smart band.",
+      "price": 18900,
+      "category": "smartwatches",
+      "image": "/watch.jpg"
+    }
+  ]
+}

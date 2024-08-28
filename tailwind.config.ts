@@ -13,6 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        // You can add more font families as needed
+      },
+      colors: {
+        primary: '#f08916', // Change this to your chosen primary color
+        secondary: '#6C757D', // Change this to your chosen secondary color
+        accent: '#fff5d6', // Change this to your chosen accent color
+      },
     },
   },
   plugins: [],
