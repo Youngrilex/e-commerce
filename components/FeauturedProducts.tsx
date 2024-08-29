@@ -54,7 +54,7 @@ const FeauturedProducts = () => {
         <Slider {...settings}>
           {products.map((product) => (
             <div key={product.id} className="p-4">
-              <Link href="/shop">
+              <Link href="/store">
                
                   <div className="border bg-primary rounded-lg overflow-hidden shadow-lg">
                     <Image
