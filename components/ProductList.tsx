@@ -13,12 +13,14 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {products?.map((product) => (
         <div key={product.id} className="bg-primary border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <Link href={`/products/${product.id}`}>
+          {/* <Link href={`/products/${product.id}`}> */}
             <div>
               <Image
                 src={product.image}
                 alt={product.name}
                 width={10000}
+                
+                priority
                 height={1000}              
                 className="w-full h-64 object-cover"
               />
@@ -28,7 +30,7 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
                 <p className="text-lg text-white font-bold">₦{product.price.toFixed(2)}</p>
               </div>
             </div>
-          </Link>
+          {/* </Link> */}
         </div>
       ))}
     </div>
