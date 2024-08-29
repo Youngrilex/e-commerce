@@ -1,10 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import ProductList from "@/components/ProductList";
-
-import ProductForm from "@/components/ProductForm";
 import {
-  useGetProductsQuery,
   useLazyGetProductsQuery,
 } from "@/lib/redux/slice/productApi";
 import { TQueryActionCreatorResult } from "@/lib/redux/apiSlice";
@@ -19,27 +16,23 @@ const Shop: React.FC = () => {
     useLazyGetProductsQuery();
   const triggerRef = useRef<TQueryActionCreatorResult>();
 
-  // const getAllProducts = useCallback(() => {
-  //   if (triggerRef.current) {
-  //     triggerRef.current.abort();
-  //   }
-  //   triggerRef.current = getProductsQuery({
-  //     category: category,
-  //   });
-  // }, [getProductsQuery, category]);
 
   useEffect(() => {
     getProductsQuery({
       category: category,
+      minPrice: priceRange[0],
+      maxPrice: priceRange[1],
     });
-  }, [getProductsQuery,category]);
+  }, [getProductsQuery, category, priceRange]);
+  
   
 
   const [isVisible, setIsVisible] = useState(false);
 
   const addProductVisibility = () => {
-    setIsVisible(!isVisible);
+    setIsVisible((prev) => !prev);
   };
+  
 
   return (
     <>
