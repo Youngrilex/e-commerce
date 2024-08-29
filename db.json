@@ -12,7 +12,7 @@
       "id": "2",
       "name": "Smartwatch Pro",
       "description": "Stay connected with fitness tracking and notifications.",
-      "price": 39999,
+      "price": 20000,
       "category": "smartwatches",
       "image": "/product-1.jpg"
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "name": "Phone Case - Midnight Blue",
       "description": "Stylish and protective phone case.",
-      "price": 74399,
+      "price": 5000,
       "category": "phone cases",
       "image": "/product-4.jpg"
     },
@@ -28,7 +28,7 @@
       "id": "4",
       "name": "Bluetooth Speaker",
       "description": "Portable speaker with deep bass and clear sound.",
-      "price": 9399,
+      "price": 24000,
       "category": "earbuds",
       "image": "/watch.jpg"
     },
@@ -36,7 +36,7 @@
       "id": "5",
       "name": "Gaming Mouse",
       "description": "Ergonomic design with customizable buttons.",
-      "price": 1995,
+      "price": 6000,
       "category": "laptop accessories",
       "image": "/product-5.jpg"
     },
@@ -52,7 +52,7 @@
       "id": "7",
       "name": "Wireless Charger",
       "description": "Fast charging for all Qi-enabled devices.",
-      "price": 9349,
+      "price": 17000,
       "category": "laptop accessories",
       "image": "/product-6.jpg"
     },
@@ -92,7 +92,7 @@
       "id": "12",
       "name": "Portable Power Bank",
       "description": "High-capacity power bank for charging on the go.",
-      "price": 14999,
+      "price": 15000,
       "category": "laptop accessories",
       "image": "/product-7.jpg"
     },
@@ -132,7 +132,7 @@
       "id": "17",
       "name": "Wireless Keyboard",
       "description": "Compact keyboard with long battery life.",
-      "price": 19950,
+      "price": 9000,
       "category": "laptop accessories",
       "image": "/product-1.jpg"
     },

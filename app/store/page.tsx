@@ -24,27 +24,30 @@ const Shop: React.FC = () => {
       triggerRef.current.abort();
     }
     triggerRef.current = getProductsQuery({
-      category:category,
-  
+   
     });
-  }, [getProductsQuery,category]);
+  }, [getProductsQuery]);
 
   useEffect(() => {
     getAllProducts();
   }, [getAllProducts]);
 
 
+  const [isVisible, setIsVisible] = useState(false);
 
- 
+  const addProductVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <>
-      <div  className="bg-accent mx-auto pt-24 p-4">
+      <div className="bg-accent mx-auto pt-24 p-4">
         <div className="flex flex-col md:flex-row md:justify-between mb-6 p-4 bg-white shadow-lg rounded-lg">
           <div className="flex flex-col md:flex-row items-center md:space-x-4">
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="mb-4 md:mb-0 md:w-48 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className=" md:w-48 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="">All Categories</option>
               <option value="earbuds">Earbuds</option>
@@ -52,6 +55,12 @@ const Shop: React.FC = () => {
               <option value="phone cases">Phone Cases</option>
               <option value="laptop accessories">Laptop Accessories</option>
             </select>
+            <button onClick={addProductVisibility}>
+              {" "}
+              <h1 className="bg-primary rounded-md px-2 py-1 text-xl font-semibold">
+                Add New Product
+              </h1>
+            </button>
           </div>
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
             <div>
@@ -86,10 +95,11 @@ const Shop: React.FC = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h1 className="text-xl font-semibold mb-4">Add a New Product</h1>
-          <AddProduct  />
-        </div>
+        {isVisible && (
+          <div>
+            <AddProduct />
+          </div>
+        )}
 
         <ProductList products={products} />
       </div>

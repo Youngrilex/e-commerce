@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
             <Link href="/products" className="hover:text-primary">
               Products
             </Link>
-            <Link href="/contact" className="hover:text-primary">
+            <Link href="#contact" className="hover:text-primary">
               Contact Us
             </Link>
           </div>

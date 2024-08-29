@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => {
           src="/bgg.jpg" // Replace with your image path
           alt="Hero Background"
           fill
-          className="object-cover" 
+          className="h-[100px] object-cover" 
             priority// Specify the
         />
       </div>
@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
         </Link>
       </div>
     </div>
-    <div className="inset-0 flex mx-6 items-center justify-center">
+    <div className="inset-0 hidden sm:flex  mx-6 items-center justify-center">
     <div className="relative w-[500px] h-[500px] overflow-hidden rounded-full border-4 border-gradient-to-r from-blue-400 via-purple-500 to-pink-500 shadow-lg hover:scale-105 transition-transform duration-300">
           <Image
             src="/gadget.jpg" 
