@@ -25,7 +25,7 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                 <p className="text-gray-600 mb-2">{product.description}</p>
-                <p className="text-lg text-white font-bold">${product.price.toFixed(2)}</p>
+                <p className="text-lg text-white font-bold">₦{product.price.toFixed(2)}</p>
               </div>
             </div>
           </Link>

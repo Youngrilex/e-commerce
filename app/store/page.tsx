@@ -19,19 +19,21 @@ const Shop: React.FC = () => {
     useLazyGetProductsQuery();
   const triggerRef = useRef<TQueryActionCreatorResult>();
 
-  const getAllProducts = useCallback(() => {
-    if (triggerRef.current) {
-      triggerRef.current.abort();
-    }
-    triggerRef.current = getProductsQuery({
-   
-    });
-  }, [getProductsQuery]);
+  // const getAllProducts = useCallback(() => {
+  //   if (triggerRef.current) {
+  //     triggerRef.current.abort();
+  //   }
+  //   triggerRef.current = getProductsQuery({
+  //     category: category,
+  //   });
+  // }, [getProductsQuery, category]);
 
   useEffect(() => {
-    getAllProducts();
-  }, [getAllProducts]);
-
+    getProductsQuery({
+      category: category,
+    });
+  }, [getProductsQuery,category]);
+  
 
   const [isVisible, setIsVisible] = useState(false);
 
