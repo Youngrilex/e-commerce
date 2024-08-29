@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Product } from '../types/product';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,7 +11,7 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {products.map((product) => (
+      {products?.map((product) => (
         <div key={product.id} className="bg-primary border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
           <Link href={`/products/${product.id}`}>
             <div>

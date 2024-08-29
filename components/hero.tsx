@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
       </p>
       <div className="">
         <Link
-          href="/shop"
+          href="/store"
           className="bg-black/90 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-accent-dark transition duration-300"
         >
           Shop Now

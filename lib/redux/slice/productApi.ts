@@ -1,39 +1,51 @@
-import { BaseQueryFn, EndpointBuilder, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { apiSlice } from "../apiSlice";
 
-// interface Product {
-//     id: string;
-//     name: string;
-//     description: string;
-//     price: number;
-//     category: string;
-//     image: string;
-//   }
-
-// Exported API tag types for use in invalidating or providing cache tags
-export const apiTagTypes = [
-    'Product',
-    'Products',
-] as const;
-
-// Type for API tags based on the `apiTagTypes` array
-type TApiTag = (typeof apiTagTypes)[number];
-
 export const productApi = apiSlice.injectEndpoints({
-    endpoints: (builder: EndpointBuilder<BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError>, TApiTag, 'api'>) => ({
-
-        // get all products
-        getProducts: builder.query({
-            query: () => ({
-                url: 'products',
-                method: "GET"
-            }),
-            providesTags: ['Products'],  // Optionally tag this data for cache management
-        }),
+  endpoints: (builder: TAppBuilder) => ({
+    // get all products
+    getProducts: builder.query<Product[], Record<string, unknown>>({
+      query: (params: any) => ({
+        url: "products",
+        params,
+      }),
+      providesTags: ["Products"],
     }),
+
+    //create product
+
+    createProduct: builder.mutation<any, CreateProduct>({
+      query: (data: CreateProduct) => ({
+        url: "products",
+        method: "POST",
+        body: data,
+      }),
+
+      invalidatesTags: ["Products"],
+    }),
+
+    updateProduct: builder.mutation<any, CreateProduct>({
+      query: ({ id, ...data }: CreateProduct) => ({
+        url: `products/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["Products"],
+    }),
+
+    deleteProduct: builder.mutation<any, string>({
+      query: (id: string) => ({
+        url: `products/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Products"],
+    }),
+  }),
 });
 
 export const {
-    useGetProductsQuery,
-    useLazyGetProductsQuery
-  } = productApi;
+  useGetProductsQuery,
+  useLazyGetProductsQuery,
+  useCreateProductMutation,
+  useUpdateProductMutation,
+  useDeleteProductMutation,
+} = productApi;

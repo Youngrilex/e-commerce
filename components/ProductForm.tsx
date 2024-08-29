@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Product } from '../types/product';
+
 
 interface ProductFormProps {
   initialProduct?: Product;
@@ -29,59 +29,7 @@ const ProductForm: FC<ProductFormProps> = ({ initialProduct, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input
-        type="text"
-        name="name"
-        value={product.name}
-        onChange={handleChange}
-        placeholder="Product Name"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <input
-        type="text"
-        name="description"
-        value={product.description}
-        onChange={handleChange}
-        placeholder="Description"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <input
-        type="number"
-        name="price"
-        value={product.price}
-        onChange={handleChange}
-        placeholder="Price"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <input
-        type="text"
-        name="category"
-        value={product.category}
-        onChange={handleChange}
-        placeholder="Category"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <input
-        type="text"
-        name="id"
-        value={product.id}
-        onChange={handleChange}
-        placeholder="id"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <input
-        type="text"
-        name="image"
-        value={product.image}
-        onChange={handleChange}
-        placeholder="Image URL"
-        className="w-full px-4 py-2 border rounded-lg"
-      />
-      <button type="submit" className="bg-accent text-white px-6 py-3 rounded-lg font-semibold">
-        Save
-      </button>
-    </form>
+  <div>sample</div>
   );
 };
 
