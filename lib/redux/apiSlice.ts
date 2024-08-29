@@ -46,5 +46,6 @@ export const apiSlice = createApi({
 export const { useGetProductsQuery } = apiSlice;
 
 
+// http://localhost:3001/
 
 

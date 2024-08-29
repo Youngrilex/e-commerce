@@ -1,54 +1,94 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiShoppingCart, FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 
 const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="w-full fixed z-50 font-display bg-black/90 text-white shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <div className="flex gap-5 items-center">
-          <Image
-                src="/akintech.png" // Update with your logo path
-                alt="AkinTech Logo"
-                width={40} // Set the width and height to match your design
-                height={40}
-                style={{ width: 'auto', height: 'auto' }} 
-                priority 
-              />
-            <Link href="/" className="text-primary flex gap- items-center text-2xl font-bold">            
-              Akin<span className='text-white'>Tech</span>
+          {/* Logo and Brand */}
+          <div className="flex items-center gap-5">
+            <Image
+              src="/akintech.png" // Update with your logo path
+              alt="AkinTech Logo"
+              width={40}
+              height={40}
+              priority
+              className="h-auto w-auto" 
+            />
+            <Link href="/" className="text-2xl font-bold text-primary flex items-center gap-1">
+              Akin<span className="text-white">Tech</span>
             </Link>
           </div>
-          <div className="hidden text-white  md:flex space-x-12">
-            <Link href="/" className="hover:text-primary">
+
+      
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex space-x-8">
+            <Link href="/" className="hover:text-primary transition-colors duration-200">
               Home
             </Link>
-            <Link href="/store" className="hover:text-primary">
+            <Link href="/store" className="hover:text-primary transition-colors duration-200">
               Shop
             </Link>
-            <Link href="/products" className="hover:text-primary">
+            <Link href="/products" className="hover:text-primary transition-colors duration-200">
               Products
             </Link>
-            <Link href="#contact" className="hover:text-primary">
+            <Link href="#contact" className="hover:text-primary transition-colors duration-200">
               Contact Us
             </Link>
           </div>
+
+          {/* Search and Cart */}
           <div className="flex items-center space-x-4">
             <input
               type="text"
               placeholder="Search..."
-              className="px-4 text-black py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="hidden md:block px-4 py-2 text-sm border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Link href="/cart" className="relative">
+            <Link href="/cart" className="relative hidden sm:block">
               <FiShoppingCart size={24} />
-              {/* <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span> */}
             </Link>
           </div>
+
+              {/* Mobile Menu Icon */}
+              <div className="md:hidden">
+            <button onClick={toggleMenu} className="focus:outline-none">
+              {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Links */}
+        {isMenuOpen && (
+          <div className="flex flex-col mb-4 items-center mt-4 space-y-2 md:hidden">
+            <Link href="/" className="hover:text-primary transition-colors duration-200" onClick={toggleMenu}>
+              Home
+            </Link>
+            <Link href="/store" className="hover:text-primary transition-colors duration-200" onClick={toggleMenu}>
+              Shop
+            </Link>
+            <Link href="/products" className="hover:text-primary transition-colors duration-200" onClick={toggleMenu}>
+              Products
+            </Link>
+            <Link href="#contact" className="hover:text-primary transition-colors duration-200" onClick={toggleMenu}>
+              Contact Us
+            </Link>
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full px-4 py-2 text-sm border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+        )}
       </div>
     </nav>
   );
