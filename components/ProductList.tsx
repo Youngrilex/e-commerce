@@ -2,12 +2,24 @@ import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
 interface ProductListProps {
   products: Product[];
 }
 
 const ProductList: FC<ProductListProps> = ({ products }) => {
-
+  if (!Array.isArray(products)) {
+    console.error('Products is not an array:', products);
+    return <div>Error: Products data is not in the expected format.</div>;
+  }
+    
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
