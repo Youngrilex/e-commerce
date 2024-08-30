@@ -46,7 +46,7 @@
       "description": "Adjustable stand for laptops of all sizes.",
       "price": 1759,
       "category": "laptop accessories",
-      "image": "/watch.jpg"
+      "image": "/laptopstand.jpg"
     },
     {
       "id": "7",
@@ -62,7 +62,7 @@
       "description": "Control your smart devices with voice commands.",
       "price": 39679,
       "category": "smartwatches",
-      "image": "/watch.jpg"
+      "image": "/smarthome.jpg"
     },
     {
       "id": "9",
@@ -70,7 +70,7 @@
       "description": "Immersive sound experience with active noise cancellation.",
       "price": 49955,
       "category": "earbuds",
-      "image": "/watch.jpg"
+      "image": "/headphone.jpg"
     },
     {
       "id": "10",
@@ -78,7 +78,7 @@
       "description": "Capture every moment in stunning 4K resolution.",
       "price": 69965,
       "category": "laptop accessories",
-      "image": "/watch.jpg"
+      "image": "/camera.jpg"
     },
     {
       "id": "11",
@@ -86,7 +86,7 @@
       "description": "Automate your home's temperature for energy savings.",
       "price": 28921,
       "category": "smartwatches",
-      "image": "/watch.jpg"
+      "image": "/thermo.jpg"
     },
     {
       "id": "12",
@@ -102,7 +102,7 @@
       "description": "Compact and comfortable wireless earbuds.",
       "price": 19990,
       "category": "earbuds",
-      "image": "/watch.jpg"
+      "image": "/earbud.jpg"
     },
     {
       "id": "14",
@@ -110,7 +110,7 @@
       "description": "Immerse yourself in virtual reality experiences.",
       "price": 59990,
       "category": "laptop accessories",
-      "image": "/watch.jpg"
+      "image": "/vr.jpg"
     },
     {
       "id": "15",
@@ -118,7 +118,7 @@
       "description": "Monitor your front door with HD video and two-way audio.",
       "price": 29990,
       "category": "smartwatches",
-      "image": "/watch.jpg"
+      "image": "/doorbell.jpg"
     },
     {
       "id": "16",
@@ -126,7 +126,7 @@
       "description": "Adjustable stand for tablets of all sizes.",
       "price": 19990,
       "category": "laptop accessories",
-      "image": "/watch.jpg"
+      "image": "/tablet.jpg"
     },
     {
       "id": "17",
@@ -134,7 +134,7 @@
       "description": "Compact keyboard with long battery life.",
       "price": 9000,
       "category": "laptop accessories",
-      "image": "/product-1.jpg"
+      "image": "/product-8.jpg"
     },
     {
       "id": "18",
@@ -142,7 +142,7 @@
       "description": "Control the brightness and color of your lights.",
       "price": 49250,
       "category": "smartwatches",
-      "image": "/watch.jpg"
+      "image": "/bulb.jpg"
     },
     {
       "id": "19",
@@ -150,7 +150,7 @@
       "description": "Stream your favorite shows in 4K UHD.",
       "price": 39990,
       "category": "laptop accessories",
-      "image": "/watch.jpg"
+      "image": "/mp3.jpg"
     },
     {
       "id": "20",
@@ -158,7 +158,7 @@
       "description": "Track your fitness goals with this smart band.",
       "price": 18900,
       "category": "smartwatches",
-      "image": "/watch.jpg"
+      "image": "/fitness.jpg"
     }
  
   ]

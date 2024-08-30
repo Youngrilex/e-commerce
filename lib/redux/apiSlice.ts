@@ -32,7 +32,7 @@ const apiTagTypes = [
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ 
-    baseUrl: 'https://run.mocky.io/v3/afe5d739-9b08-4e64-a0af-0efe94f6fc06',
+    baseUrl: 'https://run.mocky.io/v3/1e18ed6c-1af5-4b6c-8a77-e53387bbbe7d',
    }),
   tagTypes: apiTagTypes,
   endpoints: (builder) => ({

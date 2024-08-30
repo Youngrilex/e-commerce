@@ -13,10 +13,9 @@ const HomePage = () => {
     <>
       <Navbar />
       <HeroSection />
-      {/* <FeauturedProducts/> */}
+      <FeauturedProducts/>
       <Testimonials/>
       <Contact/>
-      <Footer/>
     
     </>
   );

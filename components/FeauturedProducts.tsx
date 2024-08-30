@@ -33,7 +33,7 @@ const FeauturedProducts = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
         },
@@ -48,34 +48,32 @@ const FeauturedProducts = () => {
   };
 
   return (
-    <section className="store-section py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Our Featured Products</h2>
-      <div className="container mx-auto">
-        <Slider {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className="p-4">
-              <Link href="/store">
-               
-                  <div className="border bg-primary rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={1000}
-                      height={1000}
-                      className="w-full h-[300px] object-cover rounded-t-lg"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-semibold">{product.name}</h3>
-                      <p className="text-white">{product.price}</p>
-                    </div>
-                  </div>
-              
-              </Link>
-            </div>
-          ))}
-        </Slider>
-      </div>
-    </section>
+    <section className="py-12 bg-white">
+    <h2 className="text-3xl font-bold text-center mb-8">Our Featured Products</h2>
+    <div className="container mx-auto px-7">
+      <Slider {...settings}>
+        {products.map((product) => (
+          <div key={product.id} className="p-4">
+            <Link href="/store">
+              <div className="border bg-primary rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={1000}
+                  height={1000}
+                  className="w-full h-[300px] object-cover rounded-t-lg"
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold text-white">{product.name}</h3>
+                  <p className="text-gray-200">{product.price}</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  </section>
   );
 };
 
