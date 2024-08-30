@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {productsLists} from "@/db.json";
+
 
 interface Product {
   id: number;
@@ -15,9 +17,19 @@ interface ProductListProps {
 }
 
 const ProductList: FC<ProductListProps> = ({ products }) => {
+  const use = {
+    name: 'yusuf',
+    dob:"yyyy'/mmm/dd"
+
+  }
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(use));
+  }, []);
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {products?.map((product) => (
+      {/* {products?.map((product) => ( */}
+      {productsLists?.map((product) => (
         <div
           key={product.id}
           className="bg-primary border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transform duration-300"

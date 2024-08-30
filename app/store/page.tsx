@@ -1,11 +1,13 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import ProductList from "@/components/ProductList";
+import {productsLists} from "../../db.json";
 import {
   useLazyGetProductsQuery,
 } from "@/lib/redux/slice/productApi";
 import { TQueryActionCreatorResult } from "@/lib/redux/apiSlice";
 import AddProduct from "../products/addproduct";
+import { json } from "stream/consumers";
 
 const Shop: React.FC = () => {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -33,6 +35,9 @@ const Shop: React.FC = () => {
     setIsVisible((prev) => !prev);
   };
   
+// const productList = productsLists
+console.log({productsLists})
+localStorage.setItem("productsLists", JSON.stringify(productsLists))
 
   return (
     <>

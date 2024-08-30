@@ -1,12 +1,14 @@
 import React from 'react';
 
 const Contact = () => {
+  localStorage.removeItem("list")
+  // const list=localStorage.getItem("list")
   return (
     <div className="container mx-auto mt-12 px-4" id="contact">
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">Let’s talk</h2>
         <p className="text-base sm:text-lg">
-          Say Hello. If you want to extend some info, do not hesitate to fill out this form, we love to say ‘Hello Mate’.
+       Say Hello. If you want to extend some info, do not hesitate to fill out this form, we love to say ‘Hello Mate’.
         </p>
       </div>
       <div className="flex justify-center">
