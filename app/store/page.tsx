@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import ProductList from "@/components/ProductList";
 import AddProduct from "../products/addproduct";
@@ -7,19 +7,30 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Shop: React.FC = () => {
-  const initialProducts = JSON.parse(localStorage.getItem("productsLists") || "[]") as Product[];
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(initialProducts);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [category, setCategory] = useState<string>("");
   const [priceRange, setPriceRange] = useState<number[]>([1000, 100000]);
   const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    // Check if window is available (i.e., code is running on the client side)
+    if (typeof window !== 'undefined') {
+      const storedProducts = localStorage.getItem("productsLists");
+      if (storedProducts) {
+        setFilteredProducts(JSON.parse(storedProducts) as Product[]);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("productsLists", JSON.stringify(filteredProducts));
+    }
+  }, [filteredProducts]);
+
   const addProductVisibility = () => {
     setIsVisible((prev) => !prev);
   };
-
-  useEffect(() => {
-    localStorage.setItem("productsLists", JSON.stringify(filteredProducts));
-  }, [filteredProducts]);
 
   const handleAddProduct = (product: Product) => {
     setFilteredProducts((prevProducts) => [...prevProducts, product]);
@@ -49,14 +60,17 @@ const Shop: React.FC = () => {
   };
 
   useEffect(() => {
-    const filtered = initialProducts.filter((product) => {
-      return (
-        (category === "" || product.category === category) &&
-        product.price >= priceRange[0] &&
-        product.price <= priceRange[1]
-      );
-    });
-    setFilteredProducts(filtered);
+    if (typeof window !== 'undefined') {
+      const initialProducts = JSON.parse(localStorage.getItem("productsLists") || "[]") as Product[];
+      const filtered = initialProducts.filter((product) => {
+        return (
+          (category === "" || product.category === category) &&
+          product.price >= priceRange[0] &&
+          product.price <= priceRange[1]
+        );
+      });
+      setFilteredProducts(filtered);
+    }
   }, [category, priceRange]);
 
   return (
