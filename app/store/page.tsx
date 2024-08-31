@@ -18,25 +18,26 @@ const Shop: React.FC = () => {
 
   useEffect(() => {
     const initializeProducts = () => {
-      const storedProducts = localStorage.getItem("productsLists");
-      if (storedProducts) {
-        // Load products from local storage
-        console.log("Products from localStorage:", JSON.parse(storedProducts));
-        setFilteredProducts(JSON.parse(storedProducts) as Product[]);
-      } else {
-        // Use products from JSON file and store in local storage
-        const initialProducts = productsData.productsLists.map((product: any) => ({
-          ...product,
-          id: Number(product.id) // Convert id to number if necessary
-        })) as Product[];
-        console.log("Initial products from db.json:", initialProducts);
-        setFilteredProducts(initialProducts);
-        localStorage.setItem("productsLists", JSON.stringify(initialProducts));
+      if (typeof window !== 'undefined') {
+        const storedProducts = localStorage.getItem("productsLists");
+        if (storedProducts) {
+          console.log("Products from localStorage:", JSON.parse(storedProducts));
+          setFilteredProducts(JSON.parse(storedProducts) as Product[]);
+        } else {
+          const initialProducts = productsData.productsLists.map((product: any) => ({
+            ...product,
+            id: Number(product.id)
+          })) as Product[];
+          console.log("Initial products from db.json:", initialProducts);
+          setFilteredProducts(initialProducts);
+          localStorage.setItem("productsLists", JSON.stringify(initialProducts));
+        }
       }
     };
 
     initializeProducts();
   }, []);
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
