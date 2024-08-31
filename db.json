@@ -5,7 +5,7 @@
       "name": "Sleek Wireless Earbuds",
       "description": "High-quality sound with noise cancellation.",
       "price": 29999,
-      "category": "earbuds",
+      "category": "headphones",
       "image": "/product-2.jpg"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Smartwatch Pro",
       "description": "Stay connected with fitness tracking and notifications.",
       "price": 20000,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/product-1.jpg"
     },
     {
@@ -29,10 +29,17 @@
       "name": "Bluetooth Speaker",
       "description": "Portable speaker with deep bass and clear sound.",
       "price": 24000,
-      "category": "earbuds",
+      "category": "headphones",
       "image": "/product-9.jpg"
     },
-  
+    {
+      "id": "5",
+      "name": "Gaming Mouse",
+      "description": "Ergonomic design with customizable buttons.",
+      "price": 6000,
+      "category": "laptop accessories",
+      "image": "/product-5.jpg"
+    },
     {
       "id": "6",
       "name": "Laptop Stand",
@@ -54,7 +61,7 @@
       "name": "Smart Home Hub",
       "description": "Control your smart devices with voice commands.",
       "price": 39679,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/smarthome.jpg"
     },
     {
@@ -62,7 +69,7 @@
       "name": "Noise-Canceling Headphones",
       "description": "Immersive sound experience with active noise cancellation.",
       "price": 49955,
-      "category": "earbuds",
+      "category": "headphones",
       "image": "/headphone.jpg"
     },
     {
@@ -78,7 +85,7 @@
       "name": "Smart Thermostat",
       "description": "Automate your home's temperature for energy savings.",
       "price": 28921,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/thermo.jpg"
     },
     {
@@ -94,7 +101,7 @@
       "name": "Bluetooth Earbuds",
       "description": "Compact and comfortable wireless earbuds.",
       "price": 19990,
-      "category": "earbuds",
+      "category": "headphones",
       "image": "/earbud.jpg"
     },
     {
@@ -110,7 +117,7 @@
       "name": "Smart Doorbell",
       "description": "Monitor your front door with HD video and two-way audio.",
       "price": 29990,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/doorbell.jpg"
     },
     {
@@ -134,7 +141,7 @@
       "name": "Smart Light Bulb",
       "description": "Control the brightness and color of your lights.",
       "price": 49250,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/bulb.jpg"
     },
     {
@@ -150,7 +157,7 @@
       "name": "Fitness Tracker",
       "description": "Track your fitness goals with this smart band.",
       "price": 18900,
-      "category": "smartwatches",
+      "category": "smart devices",
       "image": "/fitness.jpg"
     }
  

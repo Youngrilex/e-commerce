@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Links */}
         {isMenuOpen && (
-          <div className="bg-accentflex flex-col mb-4 items-center mt-4 space-y-2 md:hidden">
+          <div className="flex flex-col mb-4 items-center mt-4 space-y-2 md:hidden">
             <Link href="/" className="hover:text-primary transition-colors duration-200" onClick={toggleMenu}>
               Home
             </Link>

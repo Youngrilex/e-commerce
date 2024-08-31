@@ -2,10 +2,8 @@
 import type { Metadata } from "next";
 import {  Playfair } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import { persistor, store } from "@/lib/redux/store";
 import { PropsWithChildren } from "react";
-import { PersistGate } from 'redux-persist/integration/react';
+
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 
@@ -21,15 +19,10 @@ export default function RootLayout({
 }:PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={playfair.className}>
-        <Provider store={store}>
-         <PersistGate   loading={null} persistor={persistor}> 
+      <body className={playfair.className}>      
          <Navbar />
            {children}
            <Footer/>
-           </PersistGate> 
-
-        </Provider>
         </body>
     </html>
   );

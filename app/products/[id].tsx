@@ -1,70 +1,66 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Product } from "@/types/types";
+import data from "@/db.json"; // Adjust the import path according to your structure
+import Image from "next/image";
 
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Head from 'next/head';
-
-interface ProductDetailsProps {
-  product: Product;
-}
-
-const ProductDetails: NextPage<ProductDetailsProps> = ({ product }) => {
+const ProductDetails: React.FC = () => {
   const router = useRouter();
+  const { id } = router.query;
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  if (router.isFallback) {
+  useEffect(() => {
+    if (id) {
+      // Convert id to a number for comparison
+      const productId = Number(id);
+
+      // Find the product with the matching id, converting p.id to a number
+      const matchingProduct = data.productsLists.find(
+        (p) => Number(p.id) === productId
+      );
+
+      if (matchingProduct) {
+        const productWithNumberId: Product = {
+          ...matchingProduct,
+          id: productId, // Ensure id is a number
+        };
+        setProduct(productWithNumberId);
+      } else {
+        setProduct(null);
+      }
+
+      setLoading(false);
+    }
+  }, [id]);
+
+  if (loading) {
     return <div>Loading...</div>;
   }
 
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   return (
-    <>
-      <Head>
-        <title>{product.name} | AkinTech Store</title>
-        <meta name="description" content={product.description} />
-        <meta property="og:title" content={product.name} />
-        <meta property="og:description" content={product.description} />
-        <meta property="og:image" content={product.image} />
-        <meta property="og:url" content={`https://yourdomain.com/products/${product.id}`} />
-        <meta property="og:type" content="product" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={product.name} />
-        <meta name="twitter:description" content={product.description} />
-        <meta name="twitter:image" content={product.image} />
-      </Head>
-      <div className="container mx-auto p-4">
-        <div className="flex flex-col lg:flex-row">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={800}
-            height={800}
-            className="w-full lg:w-1/2 h-96 object-cover rounded-lg"
-          />
-          <div className="lg:ml-6 mt-4 lg:mt-0">
-            <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
-            <p className="text-lg mb-4">{product.description}</p>
-            <p className="text-xl font-bold mb-4">₦{product.price.toFixed(2)}</p>
-            <button className="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-dark transition duration-300">
-              Add to Cart
-            </button>
-          </div>
-        </div>
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+      <div className="bg-primary border rounded-lg overflow-hidden shadow-lg p-6">
+        <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={400}
+          height={300}
+          className="w-full h-64 sm:h-80 object-cover mb-4"
+        />
+        <p className="text-lg text-gray-200 mb-4">{product.description}</p>
+        <p className="text-2xl text-white font-bold mb-4">
+          ₦{product.price.toFixed(2)}
+        </p>
+        <p className="text-md text-gray-300">Category: {product.category}</p>
       </div>
-    </>
+    </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params!;
-  
-  // Fetch product from an API or database
-  const res = await fetch(`http://localhost:3001/products/${id}`);
-  const product: Product = await res.json();
-
-  return {
-    props: {
-      product,
-    },
-  };
 };
 
 export default ProductDetails;
