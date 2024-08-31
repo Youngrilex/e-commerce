@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Contact = () => {
-  localStorage.removeItem("list")
-  // const list=localStorage.getItem("list")
   return (
     <div className="container mx-auto mt-12 px-4" id="contact">
       <div className="text-center mb-12">

@@ -13,7 +13,6 @@ const Shop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if window is available (i.e., code is running on the client side)
     if (typeof window !== 'undefined') {
       const storedProducts = localStorage.getItem("productsLists");
       if (storedProducts) {
