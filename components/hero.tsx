@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="w-full h-[50vh] sm:h-full flex flex-col sm:flex-row bg-primary text-white pt-12 relative">
+    <section className="w-full h-[70vh] sm:h-full flex flex-col sm:flex-row bg-primary text-white pt-12 relative">
       {/* Background Image */}
       <div className="absolute z-0 inset-0 overflow-hidden">
         <Image

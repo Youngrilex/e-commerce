@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Product } from "@/types/types";
-import data from "@/db.json"; // Adjust the import path according to your structure
+import data from "../../public/db.json"; // Adjust the import path according to your structure
 import Image from "next/image";
 
 const ProductDetails: React.FC = () => {

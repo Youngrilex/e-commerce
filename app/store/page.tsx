@@ -1,10 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ProductList from "@/components/ProductList";
+import {productsLists} from "../../public/db.json";
 import AddProduct from "../products/addproduct";
 import { Product } from "@/types/types";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import productsData from "../../public/db.json";
 
 const Shop: React.FC = () => {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -12,26 +14,44 @@ const Shop: React.FC = () => {
   const [priceRange, setPriceRange] = useState<number[]>([1000, 100000]);
   const [isVisible, setIsVisible] = useState(false);
 
+  localStorage.setItem("productsLists", JSON.stringify(productsLists));
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const initializeProducts = () => {
       const storedProducts = localStorage.getItem("productsLists");
       if (storedProducts) {
+        // Load products from local storage
+        console.log("Products from localStorage:", JSON.parse(storedProducts));
         setFilteredProducts(JSON.parse(storedProducts) as Product[]);
+      } else {
+        // Use products from JSON file and store in local storage
+        const initialProducts = productsData.productsLists.map((product: any) => ({
+          ...product,
+          id: Number(product.id) // Convert id to number if necessary
+        })) as Product[];
+        console.log("Initial products from db.json:", initialProducts);
+        setFilteredProducts(initialProducts);
+        localStorage.setItem("productsLists", JSON.stringify(initialProducts));
       }
-    }
+    };
+
+    initializeProducts();
   }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem("productsLists", JSON.stringify(filteredProducts));
+      const initialProducts = JSON.parse(localStorage.getItem("productsLists") || "[]") as Product[];
+      setFilteredProducts(initialProducts);
     }
-  }, [filteredProducts]);
+  }, []);
+
 
   const addProductVisibility = () => {
     setIsVisible((prev) => !prev);
   };
 
   const handleAddProduct = (product: Product) => {
+    console.log("Adding product:", product);
     setFilteredProducts((prevProducts) => [...prevProducts, product]);
     toast.success("New product added successfully!", {
       position: "top-right",
@@ -45,6 +65,7 @@ const Shop: React.FC = () => {
   };
 
   const handleDeleteProduct = (id: number) => {
+    console.log("Deleting product with id:", id);
     const updatedProducts = filteredProducts.filter((product) => product.id !== id);
     setFilteredProducts(updatedProducts);
     toast.info("Product deleted successfully!", {
@@ -59,8 +80,10 @@ const Shop: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log("Filtering products based on category and priceRange");
     if (typeof window !== 'undefined') {
       const initialProducts = JSON.parse(localStorage.getItem("productsLists") || "[]") as Product[];
+      console.log("Initial products from localStorage:", initialProducts);
       const filtered = initialProducts.filter((product) => {
         return (
           (category === "" || product.category === category) &&
@@ -68,6 +91,7 @@ const Shop: React.FC = () => {
           product.price <= priceRange[1]
         );
       });
+      console.log("Filtered products:", filtered);
       setFilteredProducts(filtered);
     }
   }, [category, priceRange]);
