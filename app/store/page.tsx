@@ -14,7 +14,6 @@ const Shop: React.FC = () => {
   const [priceRange, setPriceRange] = useState<number[]>([1000, 100000]);
   const [isVisible, setIsVisible] = useState(false);
 
-  localStorage.setItem("productsLists", JSON.stringify(productsLists));
 
   useEffect(() => {
     const initializeProducts = () => {
