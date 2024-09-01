@@ -14,13 +14,13 @@ interface AddProductProps {}
 
 const AddProduct: React.FC<AddProductProps> = ({}) => {
   const dispatch = useAppDispatch();
-  const { selectedProduct, isProductVisible } = useAppSelector(
+  const { selectedProduct, isProductVisible,products } = useAppSelector(
     (state) => state.product,
   );
 
   const { handleSubmit, register, watch, setValue, reset } = useForm<Product>({
     defaultValues: {
-      id: Date.now().toString(),
+      id: (products.length +1) as unknown as string,
       name: "",
       description: "",
       price: 0,

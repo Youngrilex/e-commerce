@@ -7,6 +7,8 @@ import {
 } from "@/lib/redux/slice/productSlice";
 import { useAppDispatch } from "@/lib/redux/store";
 import { deleteItem, getItems } from "@/lib/mock-server";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 interface ProductListProps {
   products: Product[];
@@ -14,9 +16,16 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   const dispatch = useAppDispatch();
+
   return (
+    <>
+    <Head>
+    <meta property="og:url" content={`https://akintech.vercel.app/store/`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </Head>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {products?.map((product: Product) => (
+      {products?.sort((a,b)=> Number(b.id)-Number(a.id)).map((product: Product) => (
         <div
           key={product.id}
           className="bg-primary border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transform duration-300 relative"
@@ -39,7 +48,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                 <p className="text-xl text-white font-bold">
                   ₦{parseFloat(`${product?.price}`).toFixed(2)}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-center justify-center">
                 <Link href={`/store/${product.id}`}>
                     <button className="bg-white text-black rounded-md py-1 px-2 shadow-md">
                       View Details
@@ -71,6 +80,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
