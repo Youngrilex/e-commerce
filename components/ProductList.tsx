@@ -35,7 +35,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
               <p className="text-gray-200 mb-2 text-sm">
                 {product.description}
               </p>
-              <div className="flex mx-auto justify-between">
+              <div className="flex flex-col sm:flex-row mx-auto justify-between">
                 <p className="text-xl text-white font-bold">
                   ₦`{parseFloat(`${product?.price}`).toFixed(2)}
                 </p>
