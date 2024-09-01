@@ -5,6 +5,7 @@ type Product = {
   price: number;
   image: string;
   category: string;
+  details: string;
 };
 
 type FilterProduct = {

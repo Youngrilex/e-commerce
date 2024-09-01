@@ -1,38 +1,25 @@
-"use client"
-import { useRouter } from "next/navigation";
+"use client";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { getItems } from "@/lib/mock-server";
+import { FiArrowLeft } from "react-icons/fi";
+import Link from "next/link";
 
 function ProductDetails() {
-  const router = useRouter();
-  // const route = router.query;
+  const { productId } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  console.log({router});
 
-  // useEffect(() => {
-  //   if (id) {
-  //     // Convert id to a number for comparison
-  //     const productId = Number(id);
-
-  //     // Find the product with the matching id, converting p.id to a number
-  //     const matchingProduct = data.productsLists.find(
-  //       (p) => Number(p.id) === productId,
-  //     );
-
-  //     if (matchingProduct) {
-  //       const productWithNumberId: Product = {
-  //         ...matchingProduct,
-  //         id: productId, // Ensure id is a number
-  //       };
-  //       setProduct(productWithNumberId);
-  //     } else {
-  //       setProduct(null);
-  //     }
-
-  //     setLoading(false);
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    const items = getItems();
+    const selectedProduct = items.find(
+      (item: { id: string | string[] }) => item.id === productId
+    );
+    setProduct(selectedProduct || null);
+    console.log("object", selectedProduct);
+    setLoading(false);
+  }, [productId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -43,24 +30,36 @@ function ProductDetails() {
   }
 
   return (
-    <div className="container mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="bg-primary border rounded-lg overflow-hidden shadow-lg p-6">
-        <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={400}
-          height={300}
-          className="w-full h-64 sm:h-80 object-cover mb-4"
-        />
-        <p className="text-lg text-gray-200 mb-4">{product.description}</p>
-        <p className="text-2xl text-white font-bold mb-4">
+    <div className="pt-24 min-h-[90vh] bg-accent sm:pt-44 p-4 sm:p-6 lg:p-8">
+      <div className="">
+        <div className="flex gap-4">
+          <Link href="/store">
+            <FiArrowLeft className="text-xl text-black bg-primary hover:text-secondary transition-colors rounded-full duration-200 w-10 h-10 p-2 shadow-lg" />
+          </Link>
+          <h1 className="text-3xl font-bold mb-6 text-primary">
+            {product.name}
+          </h1>
+        </div>
+        <div className="relative w-full h-64 sm:h-80 mb-6">
+          <Image
+            src={product.image}
+            alt={product.name}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg shadow-md"
+          />
+        </div>
+        <p className="text-md text-gray-600">Category: {product.category}</p>
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          {product.details}
+        </p>
+        <p className="text-2xl font-bold mb-6 text-primary">
           ₦{product.price.toFixed(2)}
         </p>
-        <p className="text-md text-gray-300">Category: {product.category}</p>
+      
       </div>
     </div>
   );
-};
+}
 
 export default ProductDetails;

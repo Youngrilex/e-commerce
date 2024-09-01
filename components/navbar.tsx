@@ -47,12 +47,6 @@ const Navbar: React.FC = () => {
               Shop
             </Link>
             <Link
-              href="/products"
-              className="hover:text-primary transition-colors duration-200"
-            >
-              Products
-            </Link>
-            <Link
               href="#contact"
               className="hover:text-primary transition-colors duration-200"
             >
@@ -62,12 +56,7 @@ const Navbar: React.FC = () => {
 
           {/* Search and Cart */}
           <div className="flex items-center space-x-4">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="hidden md:block px-4 py-2 text-sm border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Link href="/cart" className="relative hidden sm:block">
+            <Link href="/" className="relative hidden sm:block">
               <FiShoppingCart size={24} />
             </Link>
           </div>
@@ -98,24 +87,12 @@ const Navbar: React.FC = () => {
               Shop
             </Link>
             <Link
-              href="/products"
-              className="hover:text-primary transition-colors duration-200"
-              onClick={toggleMenu}
-            >
-              Products
-            </Link>
-            <Link
               href="#contact"
               className="hover:text-primary transition-colors duration-200"
               onClick={toggleMenu}
             >
               Contact Us
             </Link>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full px-4 py-2 text-sm border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
-            />
           </div>
         )}
       </div>

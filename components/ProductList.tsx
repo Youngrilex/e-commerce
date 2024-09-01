@@ -37,7 +37,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
               </p>
               <div className="flex flex-col sm:flex-row mx-auto justify-between">
                 <p className="text-xl text-white font-bold">
-                  ₦`{parseFloat(`${product?.price}`).toFixed(2)}
+                  ₦{parseFloat(`${product?.price}`).toFixed(2)}
                 </p>
                 <div className="flex gap-2">
                 <Link href={`/store/${product.id}`}>

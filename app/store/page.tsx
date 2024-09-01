@@ -10,7 +10,7 @@ import {
   setProductIsVisible,
   setSelectedProduct,
 } from "@/lib/redux/slice/productSlice";
-import Loading from "./loader";
+import Loading from "../../components/loader";
 
 function Shop() {
   const { products, filter, isProductVisible } = useAppSelector(
