@@ -1,38 +1,38 @@
-import { useRouter } from "next/router";
+"use client"
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Product } from "@/types/types";
-import data from "../../public/db.json"; // Adjust the import path according to your structure
 import Image from "next/image";
 
-const ProductDetails: React.FC = () => {
+function ProductDetails() {
   const router = useRouter();
-  const { id } = router.query;
+  // const route = router.query;
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  console.log({router});
 
-  useEffect(() => {
-    if (id) {
-      // Convert id to a number for comparison
-      const productId = Number(id);
+  // useEffect(() => {
+  //   if (id) {
+  //     // Convert id to a number for comparison
+  //     const productId = Number(id);
 
-      // Find the product with the matching id, converting p.id to a number
-      const matchingProduct = data.productsLists.find(
-        (p) => Number(p.id) === productId
-      );
+  //     // Find the product with the matching id, converting p.id to a number
+  //     const matchingProduct = data.productsLists.find(
+  //       (p) => Number(p.id) === productId,
+  //     );
 
-      if (matchingProduct) {
-        const productWithNumberId: Product = {
-          ...matchingProduct,
-          id: productId, // Ensure id is a number
-        };
-        setProduct(productWithNumberId);
-      } else {
-        setProduct(null);
-      }
+  //     if (matchingProduct) {
+  //       const productWithNumberId: Product = {
+  //         ...matchingProduct,
+  //         id: productId, // Ensure id is a number
+  //       };
+  //       setProduct(productWithNumberId);
+  //     } else {
+  //       setProduct(null);
+  //     }
 
-      setLoading(false);
-    }
-  }, [id]);
+  //     setLoading(false);
+  //   }
+  // }, [id]);
 
   if (loading) {
     return <div>Loading...</div>;
