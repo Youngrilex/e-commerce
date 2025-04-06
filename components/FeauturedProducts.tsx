@@ -6,33 +6,33 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const products = [
-  { id: 1, name: "Smartwatch Pro", price: "₦20,000", image: "/product-1.jpg" },
-  { id: 2, name: "Wireless Earpod", price: "₦8,500", image: "/product-2.jpg" },
+  { id: 1, name: "iPhone 16", price: "₦20,000", image: "/iphone-16r.png" },
+  { id: 2, name: "iPhone 16 Plus", price: "₦8,500", image: "/iphone-16p.jpg" },
   {
     id: 3,
-    name: "Bluetooth Speaker",
+    name: "iPhone 16 Pro",
     price: "₦24,000",
-    image: "/product-9.jpg",
+    image: "/iphone-16-pro.jpg",
   },
-  { id: 4, name: "Phone case", price: "₦5,000", image: "/product-4.jpg" },
-  { id: 5, name: "Gaming Mouse", price: "₦6,000", image: "/product-5.jpg" },
+  { id: 4, name: "iPhone 16 Pro Max", price: "₦5,000", image: "/iphone-16-promax.jpg" },
+  { id: 5, name: "Samsung S25", price: "₦6,000", image: "/samsung-25.jpg" },
   {
     id: 6,
-    name: "Wireless Charger",
+    name: "Samsung S25 Ultra",
     price: "₦17,000",
-    image: "/product-6.jpg",
+    image: "/samsung-s25.jpg",
   },
   {
     id: 7,
-    name: "Portable Power Bank",
+    name: "Apple Watch Series 8",
     price: "₦15,000",
-    image: "/product-7.jpg",
+    image: "/iwatch.jpg",
   },
   {
     id: 8,
-    name: "Wireless Keyboard",
+    name: "Apple iPad Pro 13",
     price: "₦9,000",
-    image: "/product-8.jpg",
+    image: "/ipad.jpg",
   },
 ];
 
@@ -77,7 +77,7 @@ const FeauturedProducts = () => {
           {products.map((product) => (
             <div key={product.id} className="p-4">
               <Link href="/store">
-                <div className="border bg-primary rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                <div className="border bg-blue-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
                   <Image
                     src={product.image}
                     alt={product.name}

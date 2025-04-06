@@ -11,13 +11,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full fixed z-50 font-display bg-black/90 text-white shadow-lg">
+    <nav className="w-full fixed z-50 font-display bg-black/40 text-white shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo and Brand */}
           <div className="flex items-center gap-5">
             <Image
-              src="/akintech.png" // Update with your logo path
+              src="/prime logo w.png" // Update with your logo path
               alt="AkinTech Logo"
               width={40}
               height={40}
@@ -26,9 +26,9 @@ const Navbar: React.FC = () => {
             />
             <Link
               href="/"
-              className="text-2xl font-bold text-primary flex items-center gap-1"
+              className="text-2xl font-bold text-white flex items-center gap-1"
             >
-              Akin<span className="text-white">Tech</span>
+              Prime Gadgets
             </Link>
           </div>
 

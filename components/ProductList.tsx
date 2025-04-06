@@ -28,7 +28,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
       {products?.sort((a,b)=> Number(b.id)-Number(a.id)).map((product: Product) => (
         <div
           key={product.id}
-          className="bg-primary border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transform duration-300 relative"
+          className="bg-blue-800 border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transform duration-300 relative"
         >
           <div>
             <Image
@@ -40,7 +40,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
               className="w-full h-64 sm:h-80 object-cover transition-transform transform duration-300"
             />
             <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <h3 className="text-lg text-primary font-semibold mb-2">{product.name}</h3>
               <p className="text-gray-200 mb-2 text-sm">
                 {product.description}
               </p>
